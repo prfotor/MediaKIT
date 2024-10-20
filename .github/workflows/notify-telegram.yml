@@ -1,0 +1,16 @@
+name: Notify on Update
+
+on:
+  push:
+    branches:
+      - main  # Уведомление при обновлении в ветке main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram Notification
+        run: |
+          curl -X POST "https://api.telegram.org/bot7547965035:AAEkWu9g_cMo1f2z3NCeJSxpSAsXCvkw-24/sendMessage" \
+          -d "chat_id=7008136902" \
+          -d "text=Файл Fotor MediaKIT.zip был обновлён: [Скачать](https://github.com/prfotor/MediaKIT/raw/refs/heads/main/Fotor%20MediaKIT.zip)"
